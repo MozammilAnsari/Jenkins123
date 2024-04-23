@@ -1,7 +1,7 @@
 pipeline { 
     environment {
         IMAGE = "krishnagopika4/demo-cicd-1903"
-        registryCredential = 'dockerhub'
+        registryCredential = 'Dockerhub'
         dockerImage = ''
     }
     agent any 
