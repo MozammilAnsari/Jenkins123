@@ -32,7 +32,7 @@ pipeline {
 
         stage('run the docker container') {
             steps {
-                sh 'docker run -d -p 80:80 --name demo-app ${IMAGE}:latest'
+                sh 'docker run -d -p 3000:3000 --name demo-app ${IMAGE}:latest'
             }
         
         } 
