@@ -1,6 +1,6 @@
 pipeline { 
     environment {
-        IMAGE = "krishnagopika4/demo-cicd-1903"
+        IMAGE = "modassir7488/demo-cicd-1903"
         registryCredential = 'Dockerhub'
         dockerImage = ''
     }
