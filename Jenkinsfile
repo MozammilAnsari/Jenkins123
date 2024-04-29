@@ -1,17 +1,20 @@
 pipeline {
     agent any
+    
     environment {
         IMAGE = "modassir7488/demo-jenkins"
         registryCredential = 'Dockerhub'
-        dockerImage = ''
+        dockerImage = '' // You can assign a value here if needed
     }
+    
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',
+                git branch: 'main', // Check if 'main' is the correct branch name
                 url: 'https://github.com/MozammilAnsari/Jenkins123.git'
             }
         }
+        
         stage('Build') {
             steps {
                 script {
@@ -20,6 +23,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Push image to Docker Hub') {
             steps {
                 script {
@@ -28,6 +32,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Run the Docker container') {
             steps {
                 script {
