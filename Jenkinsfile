@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        IMAGE = "modassir7488/demo-cicd-1903"
+        IMAGE = "modassir7488/demo-jenkins"
         registryCredential = 'Dockerhub'
         dockerImage = ''
     }
