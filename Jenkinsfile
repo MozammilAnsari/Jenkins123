@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', // Check if 'main' is the correct branch name
-                url: 'https://github.com/MozammilAnsari/Jenkins123.git'
+                url: 'https://github.com/krishnagopika/1903-jenkins.git'
             }
         }
         
