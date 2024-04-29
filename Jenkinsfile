@@ -4,13 +4,13 @@ pipeline {
     environment {
         IMAGE = "modassir7488/demo-jenkins"
         registryCredential = 'Dockerhub'
-        dockerImage = '' // You can assign a value here if needed
+        dockerImage = ''
     }
     
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', // Check if 'main' is the correct branch name
+                git branch: 'main'
                 url: 'https://github.com/krishnagopika/1903-jenkins.git'
             }
         }
