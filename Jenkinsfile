@@ -1,16 +1,16 @@
-pipeline { 
+pipeline {
     environment {
         IMAGE = "modassir7488/demo-jenkins"
         registryCredential = 'Dockerhub'
         dockerImage = ''
     }
-    agent any 
+    agent any
     stages {
         stage('checkout') {
-                steps {
+            steps {
                 git branch: 'main',
                 url: 'https://github.com/MozammilAnsari/Jenkins123.git'
-                }
+            }
         }
         stage('Build') {
             steps {
@@ -19,23 +19,31 @@ pipeline {
                 }
             }
         }
-
         stage('Push image to docker hub') {
             steps {
-                    script {
-                     docker.withRegistry( '', registryCredential ) { 
+                script {
+                    docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push() 
-                     }
+                    }
                 }
             }
         }
-
-        stage('run the docker container') {
+        stage('Start Container') {
             steps {
-                sh 'docker run -d -p 80:80 --name demo-app ${IMAGE}:1'
+                sh 'scripts/start_container.sh'
             }
-        
-        } 
+        }
+        stage('Run Tests') {
+            steps {
+                echo "Run Step"
+            }
+        }
+        stage('Stop Container') {
+            steps {
+                sh 'scripts/stop_container.sh'
+            }
+        }
     }
 }
+
 
