@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Start Container') {
             steps {
-                sh 'chmod +x ./scripts/start_container.sh'
+                sh 'chmod +x ./scripts/start_containe.sh'
                 sh './scripts/start_container.sh'
             }
         }
