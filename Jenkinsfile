@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dockerImage = docker.build "${IMAGE}:latest"
+                    dockerImage = docker.build "${IMAGE}:1"
                 }
             }
         }
@@ -32,7 +32,7 @@ pipeline {
 
         stage('run the docker container') {
             steps {
-                sh 'docker run -d -p 80:80 --name demo-app ${IMAGE}:latest'
+                sh 'docker run -d -p 80:80 --name demo-app ${IMAGE}:1'
             }
         
         } 
