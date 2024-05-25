@@ -28,19 +28,11 @@ pipeline {
                 }
             }
         }
-        stage('Debug') {
-    steps {
-       sh 'chmod +x ./scripts/start_container.sh'
-sh 'chmod +x ./scripts/stop_container.sh'
-
-        sh 'ls -l ./scripts' // List contents of the scripts directory
-    }
-}
 
         stage('Start Container') {
             steps {
-                sh 'chmod +x ./scripts/start_container.sh'
-                sh ' ./scripts/start_container.sh'
+                sh 'chmod +x start_container.sh'
+                sh 'start_container.sh'
             }
         }
         stage('Run Tests') {
@@ -50,8 +42,8 @@ sh 'chmod +x ./scripts/stop_container.sh'
         }
         stage('Stop Container') {
             steps {
-                sh 'chmod +x ./scripts/stop_container.sh'
-                sh ' ./scripts/stop_container.sh'
+                sh 'chmod +x stop_container.sh'
+                sh 'stop_container.sh'
             }
         }
     }
