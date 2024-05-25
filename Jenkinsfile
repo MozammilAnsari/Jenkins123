@@ -30,6 +30,9 @@ pipeline {
         }
         stage('Debug') {
     steps {
+       sh 'chmod +x ./scripts/start_container.sh'
+sh 'chmod +x ./scripts/stop_container.sh'
+
         sh 'ls -l ./scripts' // List contents of the scripts directory
     }
 }
